@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Search Music by Senac/Edvandro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Search Music</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="stacked">Artista <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" [(ngModel)]="artista" placeholder=" Digite o nome do Artista" [ngModelOptions]="{standalone: true}" class="align" ></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">Música <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text"  [(ngModel)]="titulo" placeholder=" Digite o nome da Música" [ngModelOptions]="{standalone: true}" class="align" ></ion-input>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="block" round (click)="consultaMusica($event)" >Buscar</ion-button>
+    </div>
+  </ion-list>
+
+  <div class="font align"> 
+    <p style="margin: 15px; line-height: 1.5; text-align: center;">
+      {{titulo}} by {{artista}} 
+  </div>
+
+  <ion-item>
+    <ion-textarea auto-grow >{{letra}}</ion-textarea>
+  </ion-item>
+     
+</ion-content>
+
