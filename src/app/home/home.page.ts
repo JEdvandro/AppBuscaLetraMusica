@@ -13,24 +13,22 @@ export class HomePage {
   titulo: string;
   letra: any;
 
-  constructor(private cepService: MusicasService ) { }
+  constructor(private musicaService: MusicasService ) { }
 
   async consultaMusica() {
     try {
-      const result = await this.cepService.getMusica(this.artista, this.titulo);
-      this.populaDadosCep(result);
-  
-    } 
-    catch (error) {
+      const result = await this.musicaService.getMusica(this.artista, this.titulo);
+      this.populaLetramusicas(result);
+    } catch (error) {
       console.log(error);
-      this.letra = ("Letra não encontrada!");
+      this.letra = ('Letra não encontrada!');
     }
   }
 
-  populaDadosCep(dados) {
+  populaLetramusicas(dados) {
     this.letra = dados.lyrics;
 
 
-    
+
   }
 }
